@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,10 @@ namespace ProjectEuler
 
                 case 8:
                     Problem8();
+                    break;
+
+                case 10:
+                    Problem10();
                     break;
 
                 default:
@@ -257,7 +262,34 @@ namespace ProjectEuler
             }
         }
 
-
+        // Problem10
+        static void Problem10()
+        {
+            ArrayList primeNumbers = new ArrayList();
+            int sum = 0;
+            bool flag = true;
+            for(int i = 2; i <= 2000000; i++)
+            {
+                for(int j = 2; j < i; j++)
+                {
+                    if(i % j == 0)
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag == true)
+                {
+                    primeNumbers.Add(i);
+                    Console.WriteLine("P# is {0}", i);
+                }
+                flag = true;
+            }
+            foreach (object obj in primeNumbers)
+            {
+                sum = sum + Convert.ToInt32(obj);
+            }
+            Console.WriteLine("The sum is {0}", sum);
+        }
 
 
 
