@@ -75,11 +75,14 @@ namespace ProjectEuler
         {
             int dividedByThree = Remainder(1000, 3);
             int dividedByFive = Remainder(1000, 5);
+            int dividedByFifteen = Remainder(1000, 15);
 
             int[] numThree = new int[dividedByThree];
             int[] numFive = new int[dividedByFive];
+            int[] numFifteen = new int[dividedByFifteen];
             int i = 0;
             int j = 0;
+            int k = 0;
             int sum = 0;
             while (i < dividedByThree)
             {
@@ -94,7 +97,14 @@ namespace ProjectEuler
                 sum = sum + numFive[j];
                 j++;
             }
-            Console.WriteLine("1000 has {0} 3s, {1} 5s and sum of 3s & 5s is {2}", dividedByThree, dividedByFive, sum);
+            
+            while (k < dividedByFifteen)
+            {
+                numFifteen[k] = (k + 1) * 15;
+                sum = sum - numFifteen[k];
+                k++;
+            }
+            Console.WriteLine("1000 has {0} 3s, {1} 5s , {2} 15s and sum of 3s & 5s is {3}", dividedByThree, dividedByFive, dividedByFifteen, sum);
         }
 
         static int Remainder(int num1, int num2)
@@ -196,7 +206,7 @@ namespace ProjectEuler
             int compare = 0;
             while (true)
             {
-                while (i < 10)
+                while (i < 20)
                 {
                     if (num % (i + 1) == 0)
                     {
@@ -204,7 +214,7 @@ namespace ProjectEuler
                     }
                     i++;
                 }
-                if (compare == 10)
+                if (compare == 20)
                 {
                     Console.WriteLine("The Number is : {0}", num);
                     break;
