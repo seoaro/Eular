@@ -107,6 +107,26 @@ namespace ProjectEuler
                     Problem22();
                     break;
 
+                case 28:
+                    Problem28();
+                    break;
+
+                case 30:
+                    Problem30();
+                    break;
+
+                case 31:
+                    Problem31();
+                    break;
+
+                case 34:
+                    Problem34();
+                    break;
+
+                case 96:
+                    Problem96();
+                    break;
+
                 default:
                     Console.WriteLine("There is no #{0} problem.", arg);
                     break;
@@ -653,23 +673,42 @@ namespace ProjectEuler
         static void Problem18()
         {
             ReadFromFile triangle1 = new ReadFromFile("triangle1");
+            List<int> sumList = new List<int>();
+            TriOrder triOrder = new TriOrder();
+            List<TriOrder> triList = new List<TriOrder>();
             string[] strArray = triangle1.LineString;
             int j = 0;
+            int line = 0;
             int sum = 0;
             foreach(string element in strArray)
             {
                 int i = 0;
+                int index = 0;
                 List<int> intList = new List<int>();
+                
                 while(i < j + 1)
                 {
                     string numStr = "";
                     numStr = numStr + element[i].ToString() + element[i + 1].ToString();
                     int intTemp;
                     Int32.TryParse(numStr, out intTemp);
-                    //Console.WriteLine("##{0}: {1} ", j, intTemp);
+                    triOrder.line = line;
+                    triOrder.index = index;
+                    triOrder.value = intTemp;
+
+                    for (int o = 0; o < 100; o++)
+                    {
+
+                    }
                     intList.Add(intTemp);
+                    
+                    triList.Add(triOrder);
                     i = i + 3;
+                    index++;
                 }
+                List<int> tempList = new List<int>();
+                tempList = intList;
+
                 int compare = 0;
                 foreach(int eleInt in intList)
                 {
@@ -678,11 +717,31 @@ namespace ProjectEuler
                         compare = eleInt;
                     }
                 }
+
+
                 Console.WriteLine("#{0}: {1}", j, compare);
-                j = j + 3;
                 sum = sum + compare;
+                
+                j = j + 3;
+                line++;
+                
             }
-            Console.WriteLine("The sum of max numbers of each line is {0}", sum);
+            //Console.WriteLine("The sum of max numbers of each line is {0}", sum);
+            
+            int triCount = 0;
+            int triTemp = 0;
+            int triSum = 0;
+            foreach(TriOrder eleTri in triList)
+            {
+                Console.WriteLine("({0},{1}): {2}", eleTri.line, eleTri.index, eleTri.value);
+                if(eleTri.line == triCount)
+                {
+
+                    triTemp = eleTri.value;
+                    triCount++;
+                }
+            }
+            
         }
 
         // Problem20
@@ -894,11 +953,210 @@ namespace ProjectEuler
             Console.WriteLine("sum is {0}", sumTotal);
         }
 
+        // Problem28
+        static void Problem28()
+        {
+            int num = 1;
+            int plus = 2;
+            int sum = 1;
+            for(int i = 0; i < 500; i++)
+            {
+                for(int j = 0;j < 4; j++)
+                {
+                    num = num + plus;
+                    Console.WriteLine("#{0}: {1}", j, num);
+                    sum = sum + num;
+                }
+                plus = plus + 2;
+                
+            }
+            Console.WriteLine("sum is {0}", sum);
+            
+        }
+
+        // Problem30
+        static void Problem30()
+        {
+            int test = (int)Math.Pow(9, 5) * 4;
+            //Console.WriteLine("{0}", test);
+            int sum = 0;
+            for (int i = 2; i < 236197; i++)
+            {
+                string intStr = i.ToString();
+                int sumTemp = 0;
+                foreach(char element in intStr)
+                {
+                    string strTemp = element.ToString();
+                    int intTemp;
+                    Int32.TryParse(strTemp, out intTemp);
+                    
+                    sumTemp = sumTemp + (int)Math.Pow(intTemp, 5);
+
+                }
+                if(i == sumTemp)
+                {
+                    sum = sum + i;
+                    Console.WriteLine("{0}", i);
+                }
+                
+            }
+            Console.WriteLine("sum is {0}", sum);
+        }
+
+        // Problem31
+        static void Problem31()
+        {
+
+            int pense200, pense100, pense50, pense20, pense10, pense5, pense2, pense1;
+            int count = 0;
+            for (int p200 = 0; p200 <= 1; p200++)
+            {
+                pense200 = p200 * 200;
+                for (int p100 = 0; p100 <= 2; p100++)
+                {
+                    pense100 = p100 * 100;
+                    for (int p50 = 0; p50 <= 4; p50++)
+                    {
+                        pense50 = p50 * 50;
+                        for (int p20 = 0; p20 <= 10; p20++)
+                        {
+                            pense20 = p20 * 20;
+                            for (int p10 = 0; p10 <= 20; p10++)
+                            {
+                                pense10 = p10 * 10;
+                                for (int p5 = 0; p5 <= 40; p5++)
+                                {
+                                    pense5 = p5 * 5;
+                                    for (int p2 = 0; p2 <= 100; p2++)
+                                    {
+                                        pense2 = p2 * 2;
+                                        for (int p1 = 0; p1 <= 200; p1++)
+                                        {
+                                            pense1 = p1 * 1;
+                                            if (pense200 + pense100 + pense50 + pense20 + pense10 + pense5 + pense2 + pense1 == 200)
+                                            {
+                                                Console.WriteLine("{0}X£2 + {1}X£1 + {2}Xp50 + {3}Xp20 + {4}Xp10 + {5}Xp5 + {6}Xp2 + {7}Xp1 = 200", p200, p100, p50, p20, p10, p5, p2, p1);
+                                                count++;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+            Console.WriteLine("count is {0}", count);
+            
+        }
+
+        // Problem34
+        static void Problem34()
+        {
+            int[] Factorials = new int[] { 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
+            int result = 0;
+            for(int i = 3; i < 1000000; i++)
+            {
+                string strTemp = i.ToString();
+                string strEle = "";
+                int sumFac = 0;
+                foreach(char element in strTemp)
+                {
+                    strEle = strEle + element.ToString();
+                    
+                    int intTemp;
+                    Int32.TryParse(element.ToString(), out intTemp);
+                    /*
+                    int factorial = 1;
+                    for(int j = intTemp; j > 0; j--)
+                    {
+                        factorial = factorial * j;
+                    }
+                    sumFac = sumFac + factorial;
+                    */
+                    sumFac = sumFac + Factorials[intTemp];
+                }
+                
+                if(i == sumFac)
+                {
+                    Console.WriteLine("#{0}", i);
+                    result = result + i;
+                }
+                
+            }
+            Console.WriteLine("result : {0}", result);
+        }
+
+        // Problem96
+        static void Problem96()
+        {
+            ReadFromFile SudokuGrid = new ReadFromFile("sudoku");
+            string[] sudoku = SudokuGrid.LineString;
+            int[] intArray = new int[9];
+            List<int[]> sudokuInt = new List<int[]>();
+
+            for (int i = 0; i < 491; i = i + 10)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    string strTemp;
+                    strTemp = sudoku[i + j + 1];
+
+                    //int[] intArray = new int[9];
+                    int index = 0;
+                    foreach(char eleChar in strTemp)
+                    {
+                        string charToStr = eleChar.ToString();
+                        int intTemp;
+                        Int32.TryParse(charToStr, out intTemp);
+                        intArray[index] = intTemp;
+                        index++;
+                        
+                    }
+                    foreach(int eleInt in intArray)
+                    {
+                        Console.Write("{0}", eleInt);
+                    }
+                    Console.WriteLine("");
+                    sudokuInt.Add(intArray);
+                    
+                    
+                }
+                Console.WriteLine("");
+
+            }
+            foreach(int[] ele in sudokuInt)
+            {
+                //Console.WriteLine("{0} {1} {2} {3} {4} {5} {6} {7} {8}", ele[0], ele[1], ele[2], ele[3], ele[4], ele[5], ele[6], ele[7], ele[8]);
+            }
+        }
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+        public struct TriOrder
+        {
+            public int line;
+            public int index;
+            public int value;
+
+            public TriOrder(int i, int j, int k)
+            {
+                line = i;
+                index = j;
+                value = k;
+            }
+        }
 
 
     }
