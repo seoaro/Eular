@@ -136,6 +136,7 @@ namespace ProjectEuler
         }
 
         // Problem1
+        // 1000보다 작은 자연수 중에서 3 또는 5의 배수를 모두 더하면?
         static void Problem1()
         {
             int dividedByThree = Remainder(1000, 3);
@@ -190,6 +191,7 @@ namespace ProjectEuler
         }
 
         // Problem2
+        // 피보나치 수열에서 4백만 이하이면서 짝수인 항의 합
         static void Problem2()
             {
             int i = 0;
@@ -218,6 +220,7 @@ namespace ProjectEuler
         }
 
         // Problem3
+        // 가장 큰 소인수 구하기
         static void Problem3()
         {
             int i = 0;
@@ -240,7 +243,8 @@ namespace ProjectEuler
             }
         }
 
-        //Problem4
+        // Problem4
+        // 세자리 수를 곱해 만들 수 있는 가장 큰 대칭수
         static void Problem4()
         {
             int result;
@@ -263,7 +267,8 @@ namespace ProjectEuler
             }
         }
 
-        //Problem5
+        // Problem5
+        // 1 ~ 20 사이의 어떤 수로도 나누어 떨어지는 가장 작은 수
         static void Problem5()
         {
             int i = 0;
@@ -293,7 +298,7 @@ namespace ProjectEuler
         }
 
         // Problem6
-
+        // 1부터 100까지 "제곱의 합"과 "합의 제곱"의 차는?
         static void Problem6()
         {
             double sum1 = 0;
@@ -310,6 +315,7 @@ namespace ProjectEuler
 
         }
         // Problem7
+        // 10001번째의 소수
         static void Problem7()
         {
             ArrayList primeNumbers = new ArrayList();
@@ -341,6 +347,7 @@ namespace ProjectEuler
             
         }
         // Problem8
+        // 1000자리 숫자 안에서 이어지는 5자리 숫자의 곱 중 최대값은?
         static void Problem8()
         {
             ReadFromFile NumberText = new ReadFromFile("Numbers");
@@ -372,6 +379,7 @@ namespace ProjectEuler
         }
 
         // Problem9
+        // a + b + c = 1000 이 되는 피타고라스 수
         static void Problem9()
         {
             int a;
@@ -398,6 +406,7 @@ namespace ProjectEuler
         }
 
         // Problem10
+        // 이백만 이하 소수의 합
         static void Problem10()
         {
             ArrayList primeNumbers = new ArrayList();
@@ -427,6 +436,7 @@ namespace ProjectEuler
         }
 
         // Problem11
+        // 20×20 격자에서 연속된 네 숫자의 곱 중 최대값
         static void Problem11()
         {
             ReadFromFile TwentyText = new ReadFromFile("20X20");
@@ -500,6 +510,7 @@ namespace ProjectEuler
         }
 
         // Problem12
+        // 500개 이상의 약수를 갖는 가장 작은 삼각수는?
         static void Problem12()
         {
             int num = 0;
@@ -535,6 +546,7 @@ namespace ProjectEuler
         }
 
         // Problem13
+        // 50자리 숫자 100개를 더한 값의 첫 10자리 구하기
         static void Problem13()
         {
             ReadFromFile FiftyNum = new ReadFromFile("50X100");
@@ -623,6 +635,7 @@ namespace ProjectEuler
         }
 
         // Problem14
+        // 백만 이하로 시작하는 우박수 중 가장 긴 과정을 거치는 것은?
         static void Problem14()
         {
             Int64 num;
@@ -653,6 +666,7 @@ namespace ProjectEuler
         }
 
         // Problem16
+        // 21000의 각 자리수를 모두 더하면?
         static void Problem16()
         {
             double number = Math.Pow(2, 1000);
@@ -670,6 +684,7 @@ namespace ProjectEuler
         }
 
         // Problem18
+        // 삼각형을 따라 내려가면서 합이 최대가 되는 경로 찾기
         static void Problem18()
         {
             ReadFromFile triangle1 = new ReadFromFile("triangle1");
@@ -745,6 +760,7 @@ namespace ProjectEuler
         }
 
         // Problem20
+        // 100! 의 자리수를 모두 더하면?
         static void Problem20()
         {
             BigInteger result = 1;
@@ -768,6 +784,7 @@ namespace ProjectEuler
         }
 
         // Problem21
+        // 10000 이하 모든 친화수(우애수)의 합은?
         static void Problem21()
         {
             int a = 10000;
@@ -807,6 +824,7 @@ namespace ProjectEuler
         }
 
         // Problem22
+        // 영문 이름 점수 합계 구하기
         static void Problem22()
         {
             ReadFromFile Names = new ReadFromFile("names");
@@ -954,6 +972,7 @@ namespace ProjectEuler
         }
 
         // Problem28
+        // 1001×1001 나선모양 행렬에서 대각선 원소의 합은?
         static void Problem28()
         {
             int num = 1;
@@ -975,6 +994,7 @@ namespace ProjectEuler
         }
 
         // Problem30
+        // 각 자리 숫자를 5제곱해서 더했을 때 자기 자신이 되는 수들의 합은?
         static void Problem30()
         {
             int test = (int)Math.Pow(9, 5) * 4;
@@ -1004,6 +1024,7 @@ namespace ProjectEuler
         }
 
         // Problem31
+        // 영국 화폐 액면가를 조합하는 방법의 수
         static void Problem31()
         {
 
@@ -1051,6 +1072,7 @@ namespace ProjectEuler
         }
 
         // Problem34
+        // 각 자릿수의 팩토리얼을 더했을 때 자기 자신이 되는 수들의 합은?
         static void Problem34()
         {
             int[] Factorials = new int[] { 1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880 };
@@ -1088,6 +1110,7 @@ namespace ProjectEuler
         }
 
         // Problem96
+        // 스도쿠 퍼즐 풀기
         static void Problem96()
         {
             ReadFromFile SudokuGrid = new ReadFromFile("sudoku");
